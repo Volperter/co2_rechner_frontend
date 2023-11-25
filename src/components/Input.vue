@@ -184,7 +184,23 @@ export default {
       .then((data) => {
         this.co2 = data.emission
       })
+    },
+    fetchTransport(){
+      fetch('/api/transport')
+          .then(res => {
+            return res.json();
+          })
+          .then((data) => {
+            //TODO fuel values in array, size values in array (exlcude "DEFAULT"), transportMedium values in array
+            console.log(data)
+          })
     }
+  },
+  mounted() {
+    this.fetchTransport()
+  },
+  computed(){
+    //TODO make function to return custom array for fuels for each vehicle wit different fuels (if fuels is saved in one array)
   }
 }
 </script>
