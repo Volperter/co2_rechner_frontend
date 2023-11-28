@@ -137,11 +137,12 @@ export default {
       transportVehicle:'',
       showResult: false,
       co2: 0.0,
-      transport:[{value:"car", name:"Auto"}, {value:"train",name:"Zug"}, {value:"bike",name:"Fahrrad"}, {value:"foot",name:"Fuß"}],
-      cars:[{value: "Pkw", name:"PKW"}, {value:"Lkw", name:"LKW"}, {value:"Suv", name:"SUV"} ],
-      trains:[{value: "hsb", name:"HSB"}, {value:"regional", name:"Regionalbahn"}],
-      sizes:[{value: 1, name: "Klein"}, {value: 2,name:"Mittel"},  {value: 3,name:"Gross"}],
-      fuels:[ {value: "diesel",name:"Diesel"}, {value: "petrol",name:"Benzin"}, {value: "electro",name:"elektrisch"}],
+      transport:[{value:"car", name:"Auto"}, {value:"train",name:"Zug"}, {value:"Fahrrad",name:"Fahrrad"}, {value:"foot",name:"Fuß"}, {value:"bus", name:"Bus"}],
+      cars: [{value: "Pkw", name:"PKW"}],
+      busses: [{value: "BusLinie", name:"Bus"}, {value:"BusReise", name:"Reisebus"}],
+      trains: [{value: "hsb", name:"HSB"}, {value:"regional", name:"Regionalbahn"}],
+      sizes: [{value: 1, name: "Klein"}, {value: 2,name:"Mittel"},  {value: 3,name:"Gross"}],
+      fuels: [ {value: "diesel",name:"Diesel"}, {value: "petrol",name:"Benzin"}, {value: "electro",name:"elektrisch"}],
       rules: {
         required: value => !!value || 'Erforderlich',
       },
@@ -166,7 +167,7 @@ export default {
     },
     //TODO uses localhost, should use proxy
     getEmission() {
-      fetch('/api/emission', {
+      fetch('api/emission', {
         method: 'POST',
         body: {
           "startLocation": this.start,
@@ -186,12 +187,13 @@ export default {
       })
     },
     fetchTransport(){
-      fetch('/api/transport')
+      fetch('api/transport')
           .then(res => {
             return res.json();
           })
           .then((data) => {
             //TODO fuel values in array, size values in array (exlcude "DEFAULT"), transportMedium values in array
+
             console.log(data)
           })
     }
