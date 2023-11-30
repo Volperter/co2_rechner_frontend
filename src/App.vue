@@ -6,7 +6,7 @@
       </header>
       <router-view/>
       <v-footer>
-        Footer
+        <!-- Footer -->
       </v-footer>
     </v-main>
   </v-app>
