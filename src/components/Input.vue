@@ -1,7 +1,7 @@
 <template>
   <v-form @submit.prevent="handleSubmit">
     <v-container>
-      <v-sheet color="rgb(0, 0, 0, 0.05)">
+      <v-sheet color="rgb(0, 0, 0, 0.04)">
       <h2 class="text-center">CO2-Rechner-Überschrift</h2>
       <p class="text-center">Berechnen Sie hier die CO2-Bilanz Ihrer nächsten Reise ganz einfach anhand Ihrer geplanten Fahrtstrecke und des gewünschten Transportmittels</p>
       <br />
